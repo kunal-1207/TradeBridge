@@ -30,6 +30,9 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS final
 ARG SERVICE_NAME
 WORKDIR /app
 
+# Upgrade system packages to resolve base image vulnerabilities (e.g. OpenSSL)
+RUN apk upgrade --no-cache
+
 # Expose common port
 EXPOSE 8080
 ENV ASPNETCORE_HTTP_PORTS=8080
