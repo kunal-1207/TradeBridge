@@ -1,0 +1,48 @@
+global:
+  image:
+    repository: ghcr.io/kunal/tradebridge
+    tag: "latest"
+    pullPolicy: IfNotPresent
+
+apiGateway:
+  replicaCount: 2
+  service:
+    type: ClusterIP
+    port: 80
+    targetPort: 8080
+
+orderService:
+  replicaCount: 2
+  service:
+    type: ClusterIP
+    port: 80
+    targetPort: 8080
+  env:
+    ConnectionStrings__DefaultConnection: "Host=tradebridge-postgres;Database=tradebridge;Username=postgres;Password=postgres"
+    RabbitMQ__Host: "tradebridge-rabbitmq"
+
+riskService:
+  replicaCount: 2
+  service:
+    type: ClusterIP
+    port: 80
+    targetPort: 8080
+
+executionService:
+  replicaCount: 2
+  service:
+    type: ClusterIP
+    port: 80
+    targetPort: 8080
+  env:
+    RabbitMQ__Host: "tradebridge-rabbitmq"
+    ServiceUrls__LiquidityProvider: "http://tradebridge-liquidityprovider"
+
+liquidityProvider:
+  replicaCount: 1
+  service:
+    type: ClusterIP
+    port: 80
+    targetPort: 8080
+  env:
+    FAILURE_MODE: "NONE"

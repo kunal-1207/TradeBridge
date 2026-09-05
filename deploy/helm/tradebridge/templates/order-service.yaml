@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-order-service
+  labels:
+    app: {{ .Release.Name }}-order-service
+spec:
+  replicas: {{ .Values.orderService.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-order-service
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-order-service
+    spec:
+      containers:
+        - name: order-service
+          image: "{{ .Values.global.image.repository }}-order-service:{{ .Values.global.image.tag }}"
+          imagePullPolicy: {{ .Values.global.image.pullPolicy }}
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: ConnectionStrings__DefaultConnection
+              value: {{ .Values.orderService.env.ConnectionStrings__DefaultConnection | quote }}
+            - name: RabbitMQ__Host
+              value: {{ .Values.orderService.env.RabbitMQ__Host | quote }}
+            - name: ServiceUrls__RiskService
+              value: "http://{{ .Release.Name }}-risk-service"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-order-service
+spec:
+  type: {{ .Values.orderService.service.type }}
+  ports:
+    - port: {{ .Values.orderService.service.port }}
+      targetPort: {{ .Values.orderService.service.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ .Release.Name }}-order-service

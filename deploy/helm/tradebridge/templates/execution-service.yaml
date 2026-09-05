@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-execution-service
+  labels:
+    app: {{ .Release.Name }}-execution-service
+spec:
+  replicas: {{ .Values.executionService.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-execution-service
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-execution-service
+    spec:
+      containers:
+        - name: execution-service
+          image: "{{ .Values.global.image.repository }}-execution-service:{{ .Values.global.image.tag }}"
+          imagePullPolicy: {{ .Values.global.image.pullPolicy }}
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: RabbitMQ__Host
+              value: {{ .Values.executionService.env.RabbitMQ__Host | quote }}
+            - name: ServiceUrls__LiquidityProvider
+              value: "http://{{ .Release.Name }}-liquidity-provider"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-execution-service
+spec:
+  type: {{ .Values.executionService.service.type }}
+  ports:
+    - port: {{ .Values.executionService.service.port }}
+      targetPort: {{ .Values.executionService.service.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ .Release.Name }}-execution-service

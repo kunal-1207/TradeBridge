@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-liquidity-provider
+  labels:
+    app: {{ .Release.Name }}-liquidity-provider
+spec:
+  replicas: {{ .Values.liquidityProvider.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-liquidity-provider
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-liquidity-provider
+    spec:
+      containers:
+        - name: liquidity-provider
+          image: "{{ .Values.global.image.repository }}-liquidity-provider:{{ .Values.global.image.tag }}"
+          imagePullPolicy: {{ .Values.global.image.pullPolicy }}
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: FAILURE_MODE
+              value: {{ .Values.liquidityProvider.env.FAILURE_MODE | quote }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-liquidity-provider
+spec:
+  type: {{ .Values.liquidityProvider.service.type }}
+  ports:
+    - port: {{ .Values.liquidityProvider.service.port }}
+      targetPort: {{ .Values.liquidityProvider.service.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ .Release.Name }}-liquidity-provider

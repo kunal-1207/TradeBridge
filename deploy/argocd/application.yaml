@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tradebridge
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/kunal/tradebridge.git' # Placeholder
+    targetRevision: HEAD
+    path: deploy/helm/tradebridge
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: tradebridge
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

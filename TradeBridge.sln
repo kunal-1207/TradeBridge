@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{19B74922-E79B-4E8A-870A-3DECA04A10FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBridge.ApiGateway", "src\TradeBridge.ApiGateway\TradeBridge.ApiGateway.csproj", "{42C2037F-F77A-4CC6-A737-950F13B10824}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBridge.OrderService", "src\TradeBridge.OrderService\TradeBridge.OrderService.csproj", "{AB26DB45-2B6E-443C-9972-117214946818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBridge.RiskService", "src\TradeBridge.RiskService\TradeBridge.RiskService.csproj", "{133F669C-4147-4AFC-8908-2594D03CE254}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBridge.LiquidityProvider", "src\TradeBridge.LiquidityProvider\TradeBridge.LiquidityProvider.csproj", "{BACB3687-CA33-4707-9D36-4D7D123F8033}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBridge.Contracts", "src\TradeBridge.Contracts\TradeBridge.Contracts.csproj", "{3B792BE6-DD15-4FA3-9CDD-705F8728340B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBridge.Shared", "src\TradeBridge.Shared\TradeBridge.Shared.csproj", "{703F07F6-7EAB-4FA9-97A5-E88679B1E76F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{93013D97-9B63-4CA2-9405-A7672F559254}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBridge.UnitTests", "tests\TradeBridge.UnitTests\TradeBridge.UnitTests.csproj", "{13B6B2C8-AA16-47A0-A1D3-9EFEDFA546B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBridge.IntegrationTests", "tests\TradeBridge.IntegrationTests\TradeBridge.IntegrationTests.csproj", "{3B9948A6-A307-4755-B306-947A976866F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBridge.ExecutionService", "src\TradeBridge.ExecutionService\TradeBridge.ExecutionService.csproj", "{182A44FB-C516-4FFA-A609-E6F83DAA3576}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42C2037F-F77A-4CC6-A737-950F13B10824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C2037F-F77A-4CC6-A737-950F13B10824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C2037F-F77A-4CC6-A737-950F13B10824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C2037F-F77A-4CC6-A737-950F13B10824}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB26DB45-2B6E-443C-9972-117214946818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB26DB45-2B6E-443C-9972-117214946818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB26DB45-2B6E-443C-9972-117214946818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB26DB45-2B6E-443C-9972-117214946818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{133F669C-4147-4AFC-8908-2594D03CE254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{133F669C-4147-4AFC-8908-2594D03CE254}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{133F669C-4147-4AFC-8908-2594D03CE254}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{133F669C-4147-4AFC-8908-2594D03CE254}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BACB3687-CA33-4707-9D36-4D7D123F8033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BACB3687-CA33-4707-9D36-4D7D123F8033}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BACB3687-CA33-4707-9D36-4D7D123F8033}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BACB3687-CA33-4707-9D36-4D7D123F8033}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B792BE6-DD15-4FA3-9CDD-705F8728340B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B792BE6-DD15-4FA3-9CDD-705F8728340B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B792BE6-DD15-4FA3-9CDD-705F8728340B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B792BE6-DD15-4FA3-9CDD-705F8728340B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{703F07F6-7EAB-4FA9-97A5-E88679B1E76F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{703F07F6-7EAB-4FA9-97A5-E88679B1E76F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{703F07F6-7EAB-4FA9-97A5-E88679B1E76F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{703F07F6-7EAB-4FA9-97A5-E88679B1E76F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13B6B2C8-AA16-47A0-A1D3-9EFEDFA546B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13B6B2C8-AA16-47A0-A1D3-9EFEDFA546B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13B6B2C8-AA16-47A0-A1D3-9EFEDFA546B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13B6B2C8-AA16-47A0-A1D3-9EFEDFA546B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B9948A6-A307-4755-B306-947A976866F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B9948A6-A307-4755-B306-947A976866F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B9948A6-A307-4755-B306-947A976866F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B9948A6-A307-4755-B306-947A976866F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{182A44FB-C516-4FFA-A609-E6F83DAA3576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{182A44FB-C516-4FFA-A609-E6F83DAA3576}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{182A44FB-C516-4FFA-A609-E6F83DAA3576}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{182A44FB-C516-4FFA-A609-E6F83DAA3576}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{42C2037F-F77A-4CC6-A737-950F13B10824} = {19B74922-E79B-4E8A-870A-3DECA04A10FC}
+		{AB26DB45-2B6E-443C-9972-117214946818} = {19B74922-E79B-4E8A-870A-3DECA04A10FC}
+		{133F669C-4147-4AFC-8908-2594D03CE254} = {19B74922-E79B-4E8A-870A-3DECA04A10FC}
+		{BACB3687-CA33-4707-9D36-4D7D123F8033} = {19B74922-E79B-4E8A-870A-3DECA04A10FC}
+		{3B792BE6-DD15-4FA3-9CDD-705F8728340B} = {19B74922-E79B-4E8A-870A-3DECA04A10FC}
+		{703F07F6-7EAB-4FA9-97A5-E88679B1E76F} = {19B74922-E79B-4E8A-870A-3DECA04A10FC}
+		{13B6B2C8-AA16-47A0-A1D3-9EFEDFA546B3} = {93013D97-9B63-4CA2-9405-A7672F559254}
+		{3B9948A6-A307-4755-B306-947A976866F6} = {93013D97-9B63-4CA2-9405-A7672F559254}
+		{182A44FB-C516-4FFA-A609-E6F83DAA3576} = {19B74922-E79B-4E8A-870A-3DECA04A10FC}
+	EndGlobalSection
+EndGlobal

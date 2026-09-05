@@ -1,0 +1,6 @@
+@TradeBridge.RiskService_HostAddress = http://localhost:5281
+
+GET {{TradeBridge.RiskService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

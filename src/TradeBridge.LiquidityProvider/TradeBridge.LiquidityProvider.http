@@ -1,0 +1,6 @@
+@TradeBridge.LiquidityProvider_HostAddress = http://localhost:5041
+
+GET {{TradeBridge.LiquidityProvider_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

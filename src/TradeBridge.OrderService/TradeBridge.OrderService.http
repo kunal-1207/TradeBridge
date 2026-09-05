@@ -1,0 +1,6 @@
+@TradeBridge.OrderService_HostAddress = http://localhost:5011
+
+GET {{TradeBridge.OrderService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

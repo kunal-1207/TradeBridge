@@ -1,0 +1,3 @@
+Building...
+[15:38:05 INF] [OrderService] Configured endpoint order-execution-completed, Consumer: TradeBridge.OrderService.Consumers.OrderExecutionCompletedConsumer
+[15:38:05 INF] [OrderService] Configured endpoint order-execution-failed, Consumer: TradeBridge.OrderService.Consumers.OrderExecutionFailedConsumer

@@ -1,0 +1,19 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: 'tradebridge-order-service'
+    static_configs:
+      - targets: ['host.docker.internal:5000']
+  - job_name: 'tradebridge-risk-service'
+    static_configs:
+      - targets: ['host.docker.internal:5001']
+  - job_name: 'tradebridge-liquidity-provider'
+    static_configs:
+      - targets: ['host.docker.internal:5002']
+  - job_name: 'tradebridge-api-gateway'
+    static_configs:
+      - targets: ['host.docker.internal:5003']
+  - job_name: 'tradebridge-execution-service'
+    static_configs:
+      - targets: ['host.docker.internal:5004']

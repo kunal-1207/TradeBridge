@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-risk-service
+  labels:
+    app: {{ .Release.Name }}-risk-service
+spec:
+  replicas: {{ .Values.riskService.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-risk-service
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-risk-service
+    spec:
+      containers:
+        - name: risk-service
+          image: "{{ .Values.global.image.repository }}-risk-service:{{ .Values.global.image.tag }}"
+          imagePullPolicy: {{ .Values.global.image.pullPolicy }}
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-risk-service
+spec:
+  type: {{ .Values.riskService.service.type }}
+  ports:
+    - port: {{ .Values.riskService.service.port }}
+      targetPort: {{ .Values.riskService.service.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ .Release.Name }}-risk-service
